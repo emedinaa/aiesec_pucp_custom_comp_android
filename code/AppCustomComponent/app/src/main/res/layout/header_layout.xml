@@ -10,16 +10,14 @@
         android:layout_height="wrap_content"
         android:text="Explore"
         android:textColor="@color/white"
-        android:textStyle="bold"
         android:textSize="25sp"
-        android:id="@+id/textView"
+        android:id="@+id/tviTitle"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <ImageView
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:id="@+id/imageView"
         android:src="@drawable/ic_explore"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"/>

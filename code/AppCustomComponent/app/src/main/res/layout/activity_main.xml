@@ -6,13 +6,16 @@
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:background="@drawable/bg_bob">
 
     </FrameLayout>
     <com.gdglima.examples.customcomp.view.component.HeaderViewGroup
-        android:background="@color/green"
+        android:id="@+id/header"
+        android:background="@android:color/transparent"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        app:title_layout="@string/name"
         android:layout_gravity="top">
 
     </com.gdglima.examples.customcomp.view.component.HeaderViewGroup>
