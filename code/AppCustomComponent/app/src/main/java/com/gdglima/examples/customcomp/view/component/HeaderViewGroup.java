@@ -178,7 +178,7 @@ public class HeaderViewGroup extends RelativeLayout
         @Override
         public void onClick(View view) {
             Log.v("CONSOLE", " header ");
-            state= (state)?(false):(true);
+
             /*if(state)
             {
                 state=false;
@@ -186,18 +186,30 @@ public class HeaderViewGroup extends RelativeLayout
             {
                 state=true;
             }*/
-            if(state)
+            if(!state)
             {
-                ObjectAnimator traslateX = ObjectAnimator.ofFloat(menu, "translationY",menu.getY(), headerHeight);
-                traslateX.start();
+                show();
             }else
             {
-                ObjectAnimator traslateX = ObjectAnimator.ofFloat(menu, "translationY",menu.getY(), -menu.getHeight());
-                traslateX.start();
+                hide();
             }
-
+            //state= (state)?(false):(true);
         }
     };
+
+    private void show() {
+        ObjectAnimator traslateX = ObjectAnimator.ofFloat(menu, "translationY",menu.getY(), headerHeight);
+        traslateX.start();
+        state=true;
+    }
+
+    private void hide() {
+
+        ObjectAnimator traslateX = ObjectAnimator.ofFloat(menu, "translationY",menu.getY(), -menu.getHeight());
+        traslateX.start();
+        state=false;
+    }
+
     private OnClickListener menuListener= new OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -229,6 +241,7 @@ public class HeaderViewGroup extends RelativeLayout
             }
             current.setBackgroundColor(getResources().getColor(R.color.green40));
             listener.optionSelected(position);
+            hide();
         }
     };
 
