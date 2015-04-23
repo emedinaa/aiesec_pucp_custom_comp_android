@@ -5,6 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
+
         applicationId "com.gdglima.examples.customcomp"
         minSdkVersion 14
         targetSdkVersion 21

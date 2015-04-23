@@ -8,6 +8,7 @@
         android:id="@+id/rlayHeaderHome"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
         android:padding="5dp">
 
         <ImageView

@@ -9,7 +9,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.CycleInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -184,13 +188,6 @@ public class HeaderViewGroup extends RelativeLayout
         public void onClick(View view) {
             Log.v("CONSOLE", " header ");
 
-            /*if(state)
-            {
-                state=false;
-            }else
-            {
-                state=true;
-            }*/
             if(!state)
             {
                 show();
@@ -203,18 +200,24 @@ public class HeaderViewGroup extends RelativeLayout
     };
 
     private void show() {
-        ObjectAnimator traslateY = ObjectAnimator.ofFloat(menu, "translationY",menu.getY(), headerHeight);
-        traslateY.setInterpolator(new AccelerateInterpolator(2f));
-        traslateY.start();
+        //ObjectAnimator translateY = ObjectAnimator.ofFloat(menu, "translationY",menu.getY(), (headerHeight-10));
+        ObjectAnimator translateY = ObjectAnimator.ofFloat(menu, "translationY",menu.getY(), 0);
+        translateY.setInterpolator(new AccelerateInterpolator(2f));
+        translateY.setDuration(800);
+        translateY.start();
         state=true;
     }
 
     private void hide() {
 
-        ObjectAnimator traslateY = ObjectAnimator.ofFloat(menu, "translationY",menu.getY(), -menu.getHeight());
-        traslateY.setInterpolator(new AccelerateInterpolator(2f));
-        //traslateY.setInterpolator(new DecelerateInterpolator(2f));
-        traslateY.start();
+        ObjectAnimator translateY = ObjectAnimator.ofFloat(menu, "translationY",menu.getY(), -menu.getHeight());
+        translateY.setDuration(1000);
+        translateY.setInterpolator(new AnticipateOvershootInterpolator(1.5f));
+        //translateY.setInterpolator(new CycleInterpolator(4f));
+        //translateY.setInterpolator(new AccelerateDecelerateInterpolator());
+        //translateY.setInterpolator(new BounceInterpolator());
+        //translateY.setInterpolator(new DecelerateInterpolator(2f));
+        translateY.start();
         state=false;
     }
 
