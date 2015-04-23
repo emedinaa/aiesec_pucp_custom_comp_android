@@ -3,10 +3,6 @@
     <declare-styleable name="HeaderViewGroup">
         <attr name="title_layout" format="string" />
         <attr name="header_background" format="color" />
-        <!--
-        <attr name="hint_layout" format="string" />
-        <attr name="title_bg" format="color" />
-        <attr name="input_enabled" format="boolean" />
-        <attr name="input_type" format="integer" />-->
+
     </declare-styleable>
 </resources>
