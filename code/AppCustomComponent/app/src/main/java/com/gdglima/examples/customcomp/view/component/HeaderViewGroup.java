@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -198,15 +200,18 @@ public class HeaderViewGroup extends RelativeLayout
     };
 
     private void show() {
-        ObjectAnimator traslateX = ObjectAnimator.ofFloat(menu, "translationY",menu.getY(), headerHeight);
-        traslateX.start();
+        ObjectAnimator traslateY = ObjectAnimator.ofFloat(menu, "translationY",menu.getY(), headerHeight);
+        traslateY.setInterpolator(new AccelerateInterpolator(2f));
+        traslateY.start();
         state=true;
     }
 
     private void hide() {
 
-        ObjectAnimator traslateX = ObjectAnimator.ofFloat(menu, "translationY",menu.getY(), -menu.getHeight());
-        traslateX.start();
+        ObjectAnimator traslateY = ObjectAnimator.ofFloat(menu, "translationY",menu.getY(), -menu.getHeight());
+        traslateY.setInterpolator(new AccelerateInterpolator(2f));
+        //traslateY.setInterpolator(new DecelerateInterpolator(2f));
+        traslateY.start();
         state=false;
     }
 

@@ -1,6 +1,7 @@
 package com.gdglima.examples.customcomp;
 
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import com.gdglima.examples.customcomp.view.component.OnHeaderListener;
 import com.gdglima.examples.customcomp.view.fragments.ExploreFragment;
 import com.gdglima.examples.customcomp.view.fragments.HomeFragment;
 import com.gdglima.examples.customcomp.view.fragments.MessageFragment;
+import com.gdglima.examples.customcomp.view.fragments.ProfileFragment;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -28,7 +30,8 @@ public class MainActivity extends ActionBarActivity implements OnHeaderListener{
     private HomeFragment homeFragment= HomeFragment.newInstance(null,null);
     private ExploreFragment exploreFragment= ExploreFragment.newInstance(null,null);
     private MessageFragment messageFragment= MessageFragment.newInstance(null,null);
-    //private HomeFragment homeFragment= HomeFragment.newInstance(null,null);
+    private ProfileFragment profileFragment= ProfileFragment.newInstance(null,null);
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -53,6 +56,9 @@ public class MainActivity extends ActionBarActivity implements OnHeaderListener{
                 break;
             case 2:
                 fragment= messageFragment;
+                break;
+            case 3:
+                fragment= profileFragment;
                 break;
         }
 
@@ -89,6 +95,8 @@ public class MainActivity extends ActionBarActivity implements OnHeaderListener{
     {
         if (args != null) fragment.setArguments(args);
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.container, fragment, tag).commit();
+        FragmentTransaction ftransition= fragmentManager.beginTransaction();
+        ftransition.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ftransition.replace(R.id.container, fragment, tag).commit();
     }
 }
