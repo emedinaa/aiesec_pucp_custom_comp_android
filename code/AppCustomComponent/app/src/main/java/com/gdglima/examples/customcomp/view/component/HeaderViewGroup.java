@@ -37,6 +37,7 @@ public class HeaderViewGroup extends RelativeLayout
     private View current;
 
     private String title;
+    private int color;
 
     public HeaderViewGroup(Context context) {
         super(context);
@@ -74,6 +75,7 @@ public class HeaderViewGroup extends RelativeLayout
 
         title  = typedArray.getString(
                 R.styleable.HeaderViewGroup_title_layout);
+        color  = typedArray.getColor(R.styleable.HeaderViewGroup_header_background, 0x000000);
 
         //menu.setVisibility(View.GONE);
         //menu.setTranslationY(-menu.getHeight());
@@ -134,6 +136,7 @@ public class HeaderViewGroup extends RelativeLayout
         headerViewHolder.tviTitle= (TextView)header.findViewById(R.id.tviTitle);
 
         headerViewHolder.tviTitle.setText(title);
+        header.setBackgroundColor(color);
 
         menuViewHolder.rlayHeaderHome.setOnClickListener(menuListener);
         menuViewHolder.rlayHeaderExplore.setOnClickListener(menuListener);

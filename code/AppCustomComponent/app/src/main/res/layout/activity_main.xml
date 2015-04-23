@@ -16,7 +16,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         app:title_layout="GDGLima"
+        app:header_background="@color/green"
         android:layout_gravity="top">
+        <!--app:header_background="@color/aqua"-->
 
     </com.gdglima.examples.customcomp.view.component.HeaderViewGroup>
 </FrameLayout>
