@@ -36,12 +36,8 @@ public class MainActivity extends ActionBarActivity implements OnHeaderListener{
         setContentView(R.layout.activity_main);
 
         ButterKnife.inject(this);
-
         header.app(this);
-
         selectedFragment(0);
-
-
     }
 
     private void selectedFragment(int i) {
