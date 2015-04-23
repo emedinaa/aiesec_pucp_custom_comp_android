@@ -15,7 +15,7 @@
         android:background="@android:color/transparent"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        app:title_layout="@string/name"
+        app:title_layout="GDGLima"
         android:layout_gravity="top">
 
     </com.gdglima.examples.customcomp.view.component.HeaderViewGroup>
